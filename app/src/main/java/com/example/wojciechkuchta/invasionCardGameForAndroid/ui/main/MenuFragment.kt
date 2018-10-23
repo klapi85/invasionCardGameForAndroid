@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.wojciechkuchta.invasionCardGameForAndroid.GameActivity
 import com.example.wojciechkuchta.invasionCardGameForAndroid.R
+import kotlinx.android.synthetic.main.menu_fragment.exit
 import kotlinx.android.synthetic.main.menu_fragment.newGame
 
 class MenuFragment : Fragment() {
@@ -24,6 +25,7 @@ class MenuFragment : Fragment() {
         // TODO: Use the ViewModel
 
         newGame.setOnClickListener { startGame() }
+        exit.setOnClickListener { System.exit(0) }
     }
 
     private fun startGame() {
