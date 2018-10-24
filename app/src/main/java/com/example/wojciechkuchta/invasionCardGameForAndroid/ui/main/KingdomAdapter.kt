@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.example.wojciechkuchta.invasionCardGameForAndroid.R
 
-class KingdomAdapter(context: Context) : RecyclerView.Adapter<KingdomAdapter.KingdomViewHolder>() {
+class KingdomAdapter(val context: Context) : RecyclerView.Adapter<KingdomAdapter.KingdomViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
 
@@ -16,8 +18,11 @@ class KingdomAdapter(context: Context) : RecyclerView.Adapter<KingdomAdapter.Kin
         KingdomViewHolder(inflater.inflate(R.layout.card, parent, false))
 
     override fun onBindViewHolder(viewHolder: KingdomViewHolder, position: Int) {
-        viewHolder.message.text = "Monster " + position.toString()
-        viewHolder.power.text = "2/" + position.toString()
+        with(viewHolder) {
+            cardText.text = "Monster " + position.toString()
+            power.text = "2/" + position.toString()
+            card.setOnClickListener { Toast.makeText(context, "Click " + position, Toast.LENGTH_SHORT).show() }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -25,7 +30,8 @@ class KingdomAdapter(context: Context) : RecyclerView.Adapter<KingdomAdapter.Kin
     }
 
     class KingdomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val message: TextView = view.findViewById(R.id.message)
+        val card: LinearLayout = view.findViewById(R.id.card)
+        val cardText: TextView = view.findViewById(R.id.cardText)
         val power: TextView = view.findViewById(R.id.power)
     }
 }
