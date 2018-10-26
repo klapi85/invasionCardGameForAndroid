@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import com.example.wojciechkuchta.invasionCardGameForAndroid.ui.main.KingdomAdapter
 
 class GameActivity : AppCompatActivity() {
 
@@ -20,9 +18,7 @@ class GameActivity : AppCompatActivity() {
 //                .commitNow()
         }
 
-        with(findViewById<RecyclerView>(R.id.kingdomRecycler)) {
-            adapter = KingdomAdapter(context)
-        }
+
     }
 
     companion object {
